@@ -1,7 +1,11 @@
 PiRackPower
 ===========
 
-# The state machine
+## The state machine
+The power system is defined by the following state machine.
+
+The default entry state is **OFF**, but we can use a persistent memory to 
+restore the system to its last state after a power interrupt.
 
 ```
 +----------+       Press & Release       +-----------+
@@ -27,19 +31,19 @@ PiRackPower
                                          +-----------+
 ```
 
-## Actions
-- OFF [Press & Release] -> ON:
-  - Power : on
-  - Led   : on
-  - Bip   : 1
-- REBOOT [Release] -> ON:
-  - Power : off
-  - Led   : on
-  - Bip   : 1
-  - Power : on
-- POWERDOWN [Release] -> OFF:
-  - Power : off
-  - Led   : off
-  - Bip   : 2
+### Actions
+- **OFF** [*Press* & *Release*] -> **ON**:
+  - Power: on
+  - LED: on
+  - Bip: 1
+- **REBOOT** [*Release*] -> **ON**:
+  - Power: off
+  - LED: on
+  - Bip: 1
+  - Power: on
+- **POWERDOWN** [*Release*] -> **OFF**:
+  - Power: off
+  - LED: off
+  - Bip: 2
 
 
