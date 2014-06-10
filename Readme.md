@@ -8,42 +8,45 @@ The default entry state is **OFF**, but we can use a persistent memory to
 restore the system to its last state after a power interrupt.
 
 ```
-+----------+       Press & Release       +-----------+
-|   OFF    | --------------------------> |    ON     | <-------------+
-+----------+                 ,---------> +-----------+               |
-     ^                      |                 |                      |
-     |                      |                 | Press while(T)       |
-     |                      |                 v                      |
-     |                      |            +-----------+               |
-     |                      +----------- |   IDLE    |               |
-     |                         Release   +-----------+               |
-     |                                        |                      |
-     |                                        | T >= IDLE_TIME       |
-     |                                        v                      |
-     |                                   +-----------+               |
-     |                                   |  REBOOT   | --------------+
-     |                                   +-----------+     Release
-     |                                        |
-     |                                        | T >= IDLE_TIME + REBOOT_TIME
-     |                                        v 
-     |               Release             +-----------+
-     +---------------------------------- | POWERDOWN |
-                                         +-----------+
++----------+       Press & Release       +------------+
+|   OFF    | --------------------------> |     ON     | <-------------+
++----------+                 ,---------> +------------+               |
+     ^                      |                  |                      |
+     |                      |                  | Press while(T)       |
+     |                      |                  v                      |
+     |                      |            +------------+               |
+     |                      +----------- |    IDLE    |               |
+     |                         Release   +------------+               |
+     |                                         |                      |
+     |                                         | T >= IDLE_TIME       |
+     |                                         v                      |
+     |                                   +------------+               |
+     |                                   |   REBOOT   | --------------+
+     |                                   +------------+     Release
+     |                                         |
+     |                                         | T >= IDLE_TIME + REBOOT_TIME
+     |                                         v 
+     |               Release             +------------+
+     +---------------------------------- | POWER_DOWN |
+                                         +------------+
 ```
 
 ### Actions
 - **OFF** [*Press* & *Release*] -> **ON**:
-  - Power: on
-  - LED: on
-  - Bip: 1
+  - Power down
+  - Switch off the LED
+  - Bip one time
 - **REBOOT** [*Release*] -> **ON**:
-  - Power: off
-  - LED: on
-  - Bip: 1
-  - Power: on
-- **POWERDOWN** [*Release*] -> **OFF**:
-  - Power: off
-  - LED: off
-  - Bip: 2
+  - Power down
+  - Switch on the LED
+  - Wait a moment
+  - Bip one time
+  - Power up
+- **REBOOT**:
+  - Blink the LED
+- **REBOOT** [*T >= IDLE_TIME + REBOOT_TIME*] -> **POWER_DOWN**:
+  - Power down
+  - Switch off the LED
+  - Bip two times
 
 
