@@ -38,10 +38,11 @@ restore the system to its last state after a power interrupt.
   - Bip one time
 - **REBOOT** [*Release*] -> **ON**:
   - Power down
-  - Switch on the LED
-  - Wait a moment
+  - Switch off the LED
   - Bip one time
+  - Wait a moment
   - Power up
+  - Switch on the LED
 - **REBOOT**:
   - Blink the LED
 - **REBOOT** [*T >= IDLE_TIME + REBOOT_TIME*] -> **POWER_DOWN**:
