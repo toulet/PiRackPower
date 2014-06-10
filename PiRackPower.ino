@@ -1,36 +1,40 @@
 /**
- *
- *
+ * An example using the state machine
+ * @version June 10, 2014
  * @author Cyrille Toulet, <cyrille.toulet@gmail.com>
  */
 
 #include "PiRackStateMachine.h"
 
 
-// Configuration of press and release times
-int SAFE_TIME = 2500;
-int REBOOT_TIME = 5000;
+/////////////////////////////////////////
+//          CONFIGURATION              //
+/////////////////////////////////////////
 
-// Configuration of buzzer
+// Buzzer
 int BUZZER_PIN = 2;
 
-// Configuration of first hardware parts
+// Power 0 (switch, LED and relay)
 int POWER_0_SWITCH_PIN = 3;
 int POWER_0_LED_PIN = 4;
 int POWER_0_RELAY_PIN = 5;
 
-// The state machine for first RPi
-PiRackStateMachine sm1(POWER_0_SWITCH_PIN, POWER_0_LED_PIN, BUZZER_PIN, POWER_0_RELAY_PIN, SAFE_TIME, REBOOT_TIME);
+// The state machine for first RPi power
+PiRackStateMachine sm1(POWER_0_SWITCH_PIN, POWER_0_LED_PIN, BUZZER_PIN, POWER_0_RELAY_PIN);
 
+
+
+/////////////////////////////////////////
+//               RUN                   //
+/////////////////////////////////////////
 
 /**
- * Setup the application
+ * Setup
  */
 void setup() {
   // Set up the first state machine
   sm1.setup();
 }
-
 
 /**
  * The main loop
