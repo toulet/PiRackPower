@@ -1,10 +1,10 @@
 /**
- * An example using the state machine
- * @version June 10, 2014
- * @author Cyrille Toulet, <cyrille.toulet@gmail.com>
+ * An example using the state machine to provide a power supply for a RPi
+ * @version March 3, 2015
+ * @author Cyrille Toulet, <cyrille.toulet@linux.com>
  */
 
-#include "PiRackStateMachine.h"
+#include "ABPS_StateMachine.h"
 
 
 /////////////////////////////////////////
@@ -20,7 +20,8 @@ int POWER_0_LED_PIN = 4;
 int POWER_0_RELAY_PIN = 5;
 
 // The state machine for first RPi power
-PiRackStateMachine sm1(POWER_0_SWITCH_PIN, POWER_0_LED_PIN, BUZZER_PIN, POWER_0_RELAY_PIN);
+ABPS_StateMachine sm1(POWER_0_SWITCH_PIN, POWER_0_LED_PIN, BUZZER_PIN, 
+    POWER_0_RELAY_PIN);
 
 
 
