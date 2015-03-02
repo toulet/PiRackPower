@@ -1,5 +1,13 @@
-PiRackPower
-===========
+# ABPS - Arduino based power supply
+
+ABPS is an Arduino based power-supply which can be used for manage any 
+electronic system power, like micro-computers (Raspberry Pi, BeagleBone, etc).
+
+
+## Contributors
+
+Cyrille TOULET, <cyrille.toulet@linux.com>
+
 
 ## The state machine
 The power system is defined by the following state machine.
