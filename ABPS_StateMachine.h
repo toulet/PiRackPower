@@ -40,9 +40,9 @@
             /**
              * Constructor
              * @param switchPin The switch input pin (with a pull-up resistor)
-             * @param switchPin The led output pin
-             * @param switchPin The buzzer output pin
-             * @param switchPin The relay output pin
+             * @param ledPin The led output pin
+             * @param buzzerPin The buzzer output pin
+             * @param relayPin The relay output pin
              */
             PiRackStateMachine(int switchPin, int ledPin, int buzzerPin, 
                 int relayPin);
